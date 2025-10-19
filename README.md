@@ -95,8 +95,9 @@ backend/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/museum-platform.git
-cd museum-platform
+
+git clone https://github.com/bachir00/museum-data-digitalization-platform.git
+cd museum-data-digitalization-platform
 ```
 
 ### 2. Backend Setup
