@@ -1,0 +1,355 @@
+/* MuseumMap.css */
+.museum-map-container {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.map-title {
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.map-instruction {
+  color: #666;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.museum-map {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.map-room {
+  position: absolute;
+  background-color: #e8f4fc;
+  border: 2px solid #3498db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.map-room span {
+  font-weight: bold;
+  color: #3498db;
+  font-size: 1.2rem;
+}
+
+.map-room:hover {
+  background-color: #d0e9fb;
+  transform: scale(1.03);
+}
+
+.map-room[data-active="true"] {
+  background-color: #3498db;
+}
+
+.map-room[data-active="true"] span {
+  color: white;
+}
+
+.room1 {
+  top: 40px;
+  left: 50px;
+  width: 150px;
+  height: 150px;
+}
+
+.room2 {
+  top: 40px;
+  right: 50px;
+  width: 180px;
+  height: 100px;
+}
+
+.room3 {
+  bottom: 40px;
+  right: 100px;
+  width: 200px;
+  height: 100px;
+}
+
+.map-corridor {
+  position: absolute;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+.horizontal-corridor-1 {
+  top: 90px;
+  left: 200px;
+  width: 150px;
+  height: 50px;
+}
+
+.vertical-corridor-1 {
+  top: 140px;
+  left: 300px;
+  width: 50px;
+  height: 120px;
+}
+
+.map-entrance {
+  position: absolute;
+  bottom: 0;
+  left: 150px;
+  width: 100px;
+  height: 30px;
+  background-color: #f8d9ac;
+  border: 1px solid #e67e22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-entrance span {
+  font-size: 0.8rem;
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.room-info {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.room-info h3 {
+  color: #3498db;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.visit-room-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.visit-room-btn:hover {
+  background-color: #2980b9;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .museum-map-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .map-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .map-instruction {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .museum-map {
+    height: 200px;
+    max-width: 350px;
+    border: 1px solid #ddd;
+  }
+  
+  .room1 {
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .room1 span {
+    font-size: 1rem;
+  }
+  
+  .room2 {
+    top: 20px;
+    right: 20px;
+    width: 90px;
+    height: 60px;
+  }
+  
+  .room2 span {
+    font-size: 1rem;
+  }
+  
+  .room3 {
+    bottom: 20px;
+    right: 30px;
+    width: 100px;
+    height: 60px;
+  }
+  
+  .room3 span {
+    font-size: 1rem;
+  }
+  
+  .horizontal-corridor-1 {
+    top: 50px;
+    left: 100px;
+    width: 80px;
+    height: 30px;
+  }
+  
+  .vertical-corridor-1 {
+    top: 80px;
+    left: 150px;
+    width: 30px;
+    height: 70px;
+  }
+  
+  .map-entrance {
+    bottom: 0;
+    left: 50px;
+    width: 80px;
+    height: 20px;
+  }
+  
+  .map-entrance span {
+    font-size: 0.7rem;
+  }
+  
+  .room-info {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  
+  .room-info h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .room-info p {
+    font-size: 0.875rem;
+  }
+  
+  .visit-room-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .museum-map-container {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+  }
+  
+  .map-title {
+    font-size: 1.125rem;
+  }
+  
+  .map-instruction {
+    font-size: 0.75rem;
+  }
+  
+  .museum-map {
+    height: 150px;
+    max-width: 280px;
+  }
+  
+  .room1 {
+    top: 15px;
+    left: 15px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .room1 span {
+    font-size: 0.875rem;
+  }
+  
+  .room2 {
+    top: 15px;
+    right: 15px;
+    width: 70px;
+    height: 45px;
+  }
+  
+  .room2 span {
+    font-size: 0.875rem;
+  }
+  
+  .room3 {
+    bottom: 15px;
+    right: 20px;
+    width: 80px;
+    height: 45px;
+  }
+  
+  .room3 span {
+    font-size: 0.875rem;
+  }
+  
+  .horizontal-corridor-1 {
+    top: 40px;
+    left: 75px;
+    width: 60px;
+    height: 20px;
+  }
+  
+  .vertical-corridor-1 {
+    top: 60px;
+    left: 115px;
+    width: 20px;
+    height: 50px;
+  }
+  
+  .map-entrance {
+    bottom: 0;
+    left: 40px;
+    width: 60px;
+    height: 15px;
+  }
+  
+  .map-entrance span {
+    font-size: 0.6rem;
+  }
+  
+  .room-info {
+    padding: 0.75rem;
+  }
+  
+  .room-info h3 {
+    font-size: 1rem;
+  }
+  
+  .room-info p {
+    font-size: 0.8rem;
+  }
+  
+  .visit-room-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}

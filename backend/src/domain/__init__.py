@@ -1,0 +1,1 @@
+# Domain layer - Contains core business logic and rules

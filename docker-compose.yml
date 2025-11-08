@@ -1,0 +1,25 @@
+
+services:
+  backend_azure:
+    build: ./backend
+    container_name: flask_backend_azure
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - ./backend/museum.db:/app/museum.db
+    environment:
+      - FLASK_ENV=development
+
+  frontend:
+    build:
+      context: ./museum-frontend
+      dockerfile: Dockerfile
+    container_name: react_frontend_azure
+    restart: always
+    ports:
+      - "3000:80"  # Nginx exposé
+    depends_on:
+      - backend_azure
+      
+
