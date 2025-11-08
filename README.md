@@ -63,18 +63,10 @@ A comprehensive digital museum platform that enables visitors to explore museum 
 
 ```
 museum-data-digitalization-platform/
-├── .git/                           # Git repository
-├── .gitignore                      # Git ignore rules
-├── .specstory/                     # Project specifications
 ├── docker-compose.yml              # Docker services configuration
 ├── mcn_hackathon-1.pdf            # Project documentation
-├── video1.mp4                      # Demo video
-├── README.md                       # This file
-│
+
 ├── backend/                        # Flask API server
-│   ├── .env                       # Environment variables
-│   ├── .env.example               # Environment template
-│   ├── .gitignore                 # Backend-specific ignores
 │   ├── app.py                     # Flask application factory
 │   ├── database.py                # Database connection and utilities
 │   ├── init_db.py                 # Database schema setup
@@ -82,83 +74,29 @@ museum-data-digitalization-platform/
 │   ├── requirements.txt           # Python dependencies
 │   ├── Dockerfile                 # Docker configuration
 │   ├── create_admin.py            # Admin user creation script
-│   ├── debug_login.py             # Debug utilities
 │   ├── query_db.py               # Database query utilities
 │   ├── start_app.py              # Application startup script
-│   ├── __pycache__/              # Python cache files
-│   │
 │   ├── src/                      # Source code (DDD Architecture)
 │   │   ├── __init__.py
 │   │   ├── domain/               # Domain entities and business logic
 │   │   ├── application/          # Application services and DTOs
 │   │   ├── infrastructure/       # Data access and external services
 │   │   └── interfaces/           # Controllers and API endpoints
-│   │
 │   └── static/                   # Static file storage
-│       ├── images/               # Artwork and room images
-│       ├── audios/               # Audio guide files
-│       ├── videos/               # Video content
-│       └── qrcodes/              # Generated QR codes
 │
 └── museum-frontend/               # React frontend application
-    ├── .env                      # Frontend environment variables
-    ├── .env.example              # Frontend environment template
-    ├── .gitignore                # Frontend-specific ignores
-    ├── package.json              # Node.js dependencies and scripts
-    ├── package-lock.json         # Dependency lock file
-    ├── vite.config.js            # Vite configuration
-    ├── tailwind.config.cjs       # Tailwind CSS configuration
-    ├── postcss.config.js         # PostCSS configuration
-    ├── eslint.config.js          # ESLint configuration
-    ├── index.html                # HTML entry point
     ├── Dockerfile                # Docker configuration
     ├── nginx.conf                # Nginx configuration for production
-    ├── dist/                     # Build output directory
-    ├── node_modules/             # Node.js dependencies
-    │
-    ├── public/                   # Static assets
-    │   └── vite.svg              # Vite logo
-    │
     └── src/                      # Source code
         ├── App.jsx               # Main application component
         ├── App.css               # Global application styles
         ├── main.jsx              # Application entry point
         ├── index.css             # Global CSS styles
-        │
-        ├── assets/               # Static assets used in components
-        │   └── react.svg         # React logo
-        │
         ├── components/           # Reusable UI components
-        │   ├── MuseumMap.jsx     # Interactive museum map
-        │   ├── MuseumMap.css     # Map component styles
-        │   └── layout/           # Layout components
-        │
         ├── contexts/             # React contexts
-        │   ├── AuthContext.jsx   # Authentication context
-        │   └── LanguageContext.jsx # Language switching context
-        │
         ├── pages/                # Application pages
-        │   ├── HomePage.jsx      # Landing page
-        │   ├── HomePage.css      # Home page styles
-        │   ├── AboutPage.jsx     # About page
-        │   ├── AboutPage.css     # About page styles
-        │   ├── AboutPage.animations.css # About page animations
-        │   ├── RoomsPage.jsx     # Rooms listing page
-        │   ├── RoomsPage.css     # Rooms page styles
-        │   ├── RoomDetailPage.jsx # Individual room details
-        │   ├── RoomDetailPage.css # Room detail styles
-        │   ├── RoomDetailPage.animations.css # Room detail animations
-        │   ├── RoomDetailPage.extra.css # Extra room detail styles
-        │   ├── ArtworksPage.jsx  # Artworks listing page
-        │   ├── ArtworksPage.css  # Artworks page styles
-        │   ├── ArtworksPageSimple.jsx # Simplified artworks view
-        │   ├── ArtworkDetailPage.jsx # Individual artwork details
-        │   ├── ArtworkDetailPage.css # Artwork detail styles
-        │   └── SearchPage.jsx    # Search functionality
-        │
         ├── services/             # API services
         │   └── api.js            # API client and endpoints
-        │
         └── utils/                # Utility functions
             └── ScrollToTop.jsx   # Scroll management utility
 ```
@@ -250,9 +188,8 @@ VITE_API_BASE_URL=http://localhost:5000
 
 The system creates a default admin account on first run:
 - **Username**: `admin`
-- **Password**: `museum2024`
+- **Password**: `admin`
 
-⚠️ **Important**: Change this password in production!
 
 ## 📚 API Documentation
 
@@ -314,18 +251,7 @@ All create/update endpoints support multipart/form-data for file uploads:
 - **SQL Injection Protection**: Parameterized queries
 - **Password Hashing**: Werkzeug secure password hashing
 
-## 🌐 Deployment
-
-### Production Considerations
-
-1. **Environment Variables**: Set secure values for production
-2. **Database**: Consider PostgreSQL for production
-3. **File Storage**: Use cloud storage (AWS S3, etc.) for scalability
-4. **HTTPS**: Enable SSL/TLS encryption
-5. **Reverse Proxy**: Use Nginx for static file serving
-6. **Monitoring**: Add logging and monitoring tools
-
-### Docker Production Deployment
+## 🌐Docker Production Deployment
 
 ```bash
 # Build production images
@@ -335,13 +261,6 @@ docker-compose -f docker-compose.prod.yml build
 docker-compose -f docker-compose.prod.yml up -d
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📝 Development Guidelines
 
@@ -391,14 +310,6 @@ docker-compose -f docker-compose.prod.yml up -d
    - Verify FRONTEND_URL in backend .env
    - Check API_BASE_URL in frontend .env
 
-4. **Authentication Problems**
-   - Clear browser localStorage
-   - Check JWT_SECRET_KEY consistency
-   - Verify token expiration settings
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -407,13 +318,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Designed with accessibility and multilingual support in mind
 - Created with ❤️ for cultural heritage preservation
 
-## 📞 Support
-
-For support, questions, or contributions, please:
-- Open an issue on GitHub
-- Contact the development team
-- Check the documentation wiki
-
----
-
-**Made with ❤️ for cultural heritage digitalization**
